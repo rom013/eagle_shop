@@ -4,7 +4,11 @@ module.exports = {
 	theme: {
 		extend: {
 			"backgroundImage": {
-				"forspoken": "url(background_forspoken.png)"
+				"forspoken": "url(background_forspoken.png)",
+				"blur": "url(login.svg)"
+			},
+			"fontFamily":{
+				"sora": '"Sora", sans-serif'
 			}
     },
 	},

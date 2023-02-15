@@ -20,3 +20,11 @@ body::-webkit-scrollbar-thumb {
 ::selection{
   @apply bg-violet-900
 }
+
+.container-input{
+  @apply bg-[#27272A] border border-pink-600 rounded-full py-2 px-10  text-white flex gap-2 items-center shadow-md
+}
+
+.container-input input{
+  @apply focus:outline-none bg-[#27272A] w-full 
+}
