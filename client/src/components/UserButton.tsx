@@ -22,10 +22,22 @@ export default function UserButton(){
 
     useEffect(()=>{
 		const jwtToken = localStorage.authorizationUser
+        
+        const parseJwt = (token:string) => {
+            try {
+                return JSON.parse( // converte string em json
+                        atob( // decodifica uma string que foi codificada em base-64
+                            token.split('.')[1] // divide um texto em arrays a partir de de uma referencia "." 
+                        )
+                    )
+            } catch (e) {
+                return 0;
+            }
+        };
 
 		const option:v = {
 			method: "GET",
-			url: "http://localhost:9999/profile/4",
+			url: `${import.meta.env.VITE_URL_SERVER}/profile/${parseJwt(jwtToken).id}`,
 			headers: {
 				Authorization: `Bearer ${jwtToken}`
 			}

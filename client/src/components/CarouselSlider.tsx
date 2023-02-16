@@ -15,9 +15,8 @@ export default function CarouselSlider({ title }: typeProps) {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        axios.get('http://localhost:9999/game-list')
+        axios.get(`${import.meta.env.VITE_URL_SERVER}/game-list`)
             .then(e => {
-                console.log(e.status);
                 setGames(e.data)
             })
             .catch(e => {

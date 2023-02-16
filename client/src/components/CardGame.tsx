@@ -8,7 +8,7 @@ export default function CardGame({img,nameGame,price}:values){
 
     return(
         <div className="p-1 w-44 h-full flex flex-col rounded">
-            <img src={`http://localhost:9999${img}`} alt="" className="object-cover w-full h-56 rounded"/>
+            <img src={`${import.meta.env.VITE_URL_SERVER}${img}`} alt="" className="object-cover w-full h-56 rounded"/>
             <div className="flex flex-col gap-2 mb-6 mt-2">
                 <span className="uppercase text-xs font-medium">{nameGame}</span>
                 <span className="text-lg font-semibold">{price == 0 ? "Grátis" : `R$ ${price.toFixed(2).toString().replace(".", ",")}`}</span>

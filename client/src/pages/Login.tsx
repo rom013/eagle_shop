@@ -1,11 +1,26 @@
 import { useNavigate } from "react-router-dom"
 import logoEagle from "../image/logo_eagle.svg"
 import { useState } from "react"
-import { Eye, EyeSlash, Lock, User } from "phosphor-react"
+import { EnvelopeOpen, Eye, EyeSlash, Lock } from "phosphor-react"
+import axios from "axios"
 
 export default function Login(){
     const navigate = useNavigate()
     const [state, setState] = useState(false)
+
+    const [pass, setPass] = useState('')
+    const [email, setEmail] = useState('')
+    const [errorAuthorization, setErrorAuthorization] = useState(false)
+    const [loadingRequest, setLoadingRequest] = useState(false)
+
+    const option = {
+        method: "POST",
+        url: `${import.meta.env.VITE_URL_SERVER}/login`,
+        data: {
+            "password": pass,
+            "email": email
+        }
+    }
 
     return (
         <div className="bg-blur min-h-screen bg-no-repeat bg-cover flex justify-between">
@@ -18,16 +33,36 @@ export default function Login(){
                 <h2 className="text-white font-semibold text-6xl font-sora">
                     Log in
                 </h2>
-
                 <form
-                    onSubmit={e=>e.preventDefault()}
+                    onSubmit={(e)=>{
+                        e.preventDefault()
+                        setLoadingRequest(true)
+                        
+                        axios(option)
+                            .then(e=>{
+                                localStorage.setItem("authorizationUser", e.data.token)
+                                setLoadingRequest(false)
+                                navigate('/')
+                            })
+                            .catch(err=>{
+                                setErrorAuthorization(true)
+                                setLoadingRequest(false)
+                            })
+                            .finally(()=>{
+                                setLoadingRequest(false)
+                            })
+                    }}
                     className="flex flex-col gap-4 mt-20"
                 >
+                    {
+                        errorAuthorization && <span className="text-red-500 text-center">Senha ou email incorretos</span>
+                    }
                     <div className="container-input">
-                        <User weight="bold" size={24} color="#808080"/>
+                        <EnvelopeOpen weight="bold" size={24} color="#808080"/>
                         <input
                             type={"text"}
-                            placeholder="username"
+                            placeholder="Email"
+                            onChange={e=>setEmail(e.target.value.trim())}
                         />
                     </div>
 
@@ -37,6 +72,7 @@ export default function Login(){
                             <input
                                 type={"password"}
                                 placeholder="password"
+                                onChange={(e)=>setPass(e.target.value.trim())}
                             />
                             <label
                                 className="cursor-pointer select-none"
@@ -55,9 +91,12 @@ export default function Login(){
 
                     <button
                         type="submit"
-                        className="bg-[#A21CAF] w-full flex justify-center items-center rounded-full py-3 text-3xl font-bold text-white mt-16 hover:bg-[#91169c]"
+                        className="disabled:opacity-25 disabled:cursor-not-allowed bg-[#A21CAF] w-full flex justify-center items-center rounded-full py-3 text-3xl font-bold text-white mt-16 hover:bg-[#91169c]"
+                        disabled={pass.length >= 8 ? false : true}
                     >
-                        Log in
+                        {
+                            !loadingRequest ? "Log in" : <div className="spinner"></div>
+                        }
                     </button>
                 </form>
 

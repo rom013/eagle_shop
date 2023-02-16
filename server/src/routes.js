@@ -93,7 +93,8 @@ app.post('/login', async (req,res)=>{
         const verifyPassword = await bcript.compare(password, passwordDataBase)
         
         if(!verifyPassword){
-            res.json({Error: "Password or Email invalid"})
+            res.status(403).json({Error: "Password or Email invalid"})
+            return
         }
 
         const token = jwt.sign({ id:  id_user}, process.env.JWT_SECRET, {

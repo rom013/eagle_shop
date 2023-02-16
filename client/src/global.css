@@ -6,7 +6,7 @@ body{
     @apply bg-[#181818]
 }
 body::-webkit-scrollbar {
-  @apply w-2;
+  @apply w-1;
 }
  
 body::-webkit-scrollbar-track {
@@ -27,4 +27,21 @@ body::-webkit-scrollbar-thumb {
 
 .container-input input{
   @apply focus:outline-none bg-[#27272A] w-full 
+}
+
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  padding: 1.4px;
+  background: radial-gradient(farthest-side,#ffffff 95%,#0000) 50% 0/5.8px 5.8px no-repeat,
+    radial-gradient(farthest-side,#0000 calc(100% - 2.4px),#ffffff calc(100% - 1.9px)) content-box;
+  animation: spinner-x3enp9 0.8999999999999999s infinite;
+}
+
+@keyframes spinner-x3enp9 {
+  to {
+    transform: rotate(1turn);
+  }
 }
