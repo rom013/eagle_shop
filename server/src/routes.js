@@ -51,17 +51,16 @@ app.post('/add-game', middlewareAuth, (req, res)=>{
 
 app.post('/register', async (req,res)=>{
     const auth = req.headers.authorization
-    if(!auth || auth !== 'password'){
-        res.status(401).send('OPS!')
-    }
-    const { name, email, cell, password, nickname } = req.body
-    
+    // if(!auth || auth !== 'password'){
+    //     res.status(401).send('OPS!')
+    // }
+    const { name: nameUser, email, cell: tell, password, nickname, ddi } = req.body
     const hashPassword = await bcript.hash(password, 10)
     const id_user = uuid.v1()
 
-    const SQL = "INSERT INTO usuario (id_user, senha_user, email_user, cell_user, nome_user, nick_user) VALUE (?,?,?,?,?,?)"
-
-    connection.query(SQL, [id_user, hashPassword, email, cell, name, nickname], (err)=>{
+    const SQL = "INSERT INTO usuario (id_user, senha_user, email_user, cell_user, nome_user, nick_user, ddi) VALUE (?,?,?,?,?,?,?)"
+    
+    connection.query(SQL, [id_user, hashPassword, email, tell, nameUser, nickname, ddi], (err)=>{
         if(err){
             res.status(403).json({
                 error: "The data is already in our database" 
