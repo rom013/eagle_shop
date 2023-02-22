@@ -124,6 +124,9 @@ app.get("/profile/:id", middlewareAuth, (req, res)=>{
 
 })
 
+app.post("/auth", middlewareAuth, (req, res)=>{
+    res.status(200).json({auth: true})
+})
 /* end routes */
 
 app.listen(9999, ()=>{

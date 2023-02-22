@@ -1,9 +1,6 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
+
+import RoutesPages from "./routes"
 
 export default function App() {
 	useEffect(()=>{
@@ -16,14 +13,5 @@ export default function App() {
 		})
 	},[])
 
-	return (
-		<BrowserRouter>
-			<Routes>
-				<Route path="*" element={<NotFound/>}/>
-				<Route path="/" element={<Home/>}/>
-				<Route path="/login" element={<Login/>}/>
-				<Route path="/register" element={<Register/>}/>
-			</Routes>
-		</BrowserRouter>
-	)
+	return <RoutesPages/>
 }

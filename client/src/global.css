@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body{
-    @apply bg-[#181818]
+    @apply bg-[#181818] scroll-smooth min-h-screen
 }
 body::-webkit-scrollbar {
   @apply w-1;

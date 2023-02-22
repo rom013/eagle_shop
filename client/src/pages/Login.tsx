@@ -6,7 +6,7 @@ import axios from "axios"
 
 export default function Login(){
     const navigate = useNavigate()
-    const [state, setState] = useState(false)
+    const [state, setState] = useState(true)
 
     const [pass, setPass] = useState('')
     const [email, setEmail] = useState('')
@@ -70,7 +70,7 @@ export default function Login(){
                         <div className="container-input">
                             <Lock weight="bold" size={24} color="#808080"/>
                             <input
-                                type={"password"}
+                                type={state ? "password" : "text"}
                                 placeholder="password"
                                 onChange={(e)=>setPass(e.target.value.trim())}
                             />

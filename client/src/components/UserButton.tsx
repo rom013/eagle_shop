@@ -49,7 +49,7 @@ export default function UserButton(){
 			})
 			.catch(e=>{
                 setUseAtho(false)
-				console.log("Não autorizado!");
+				// console.log("Não autorizado!");
 			})
 	},[])
     
@@ -76,6 +76,7 @@ export default function UserButton(){
 
                                 <DropdownMenu.Item 
                                     className="outline-none text-white flex items-center gap-4 cursor-pointer hover:bg-purple-900 py-2 px-8 w-full"
+                                    onClick={()=>navigate("/user")}
                                 >
                                     <User size={26}/>
                                     <p className="font-semibold text-base">Perfil</p>

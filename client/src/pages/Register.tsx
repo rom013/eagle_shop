@@ -17,17 +17,27 @@ type Inputs = {
 
 export default function Login(){
     const navigate = useNavigate()
-    function requestDataUser(data){
+    const [error, setError] = useState(false)
+    const [repeatedData, setRepeatedData] = useState(false)
+    
+    function requestDataUser(data:object){
         const options = {
             method: "POST",
             url: `${import.meta.env.VITE_URL_SERVER}/register`,
             data: data
         }
-        console.log(options);
+        // console.log(options);
         
         axios(options)
             .then((e)=>navigate("/login"))
-            .catch(({response})=>console.log(response.data.error))
+            .catch(({response})=>{
+                console.log(response)
+                if(response.status === 403){
+                    setRepeatedData(true)
+                    return
+                }
+                setError(true)
+            })
     }
     const [ddi, setDdi] = useState("000");
     
@@ -39,7 +49,7 @@ export default function Login(){
         }
         requestDataUser(dataRegister)
     }
-    const [state, setState] = useState(false)
+    const [state, setState] = useState(true)
 
     const [focusInput, setFocusInput] = useState(false)
     const [focusInputPass, setFocusInputPass] = useState(false)
@@ -112,7 +122,7 @@ export default function Login(){
                         <Lock weight={focusInputPass ? "fill" : "bold"} size={24} color="#808080"/>
                         <div className="flex flex-col w-full">
                             <input
-                                type={"password"}
+                                type={state ? "password" : "text"}
                                 placeholder="password"
                                 {...register("password", {required: true, minLength: 8})}
                             />
@@ -185,6 +195,13 @@ export default function Login(){
                             {...register("cell", {required: true, maxLength: 12, minLength:11 , pattern: /[0-9]/})}
                         />
                     </div>
+                                            
+                    {
+                        repeatedData && <span className="text-center text-white text-sm">Um desses dados já foi usado, tente algo diferente.</span>
+                    }
+                    {
+                        error && <span className="text-center text-white text-sm">Ocorreu um erro inesperado! <a href="#" className="text-violet-700 hover:underline">suporte</a></span>
+                    }
 
                     <button
                         type="submit"
