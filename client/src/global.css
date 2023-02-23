@@ -45,3 +45,18 @@ body::-webkit-scrollbar-thumb {
     transform: rotate(1turn);
   }
 }
+
+
+.link::after{
+  margin-top: 2px;
+  content: "";
+  width: 0;
+  height: 4px;
+  /*background: rgb(76 29 149);*/
+  display: block;
+  transition: .4s
+}
+
+.link:hover::after{
+  width: 30%
+}

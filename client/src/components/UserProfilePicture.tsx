@@ -60,7 +60,7 @@ export default function UserProfilePicture({ nameUser }) {
                 errorName && <span className="text-rose-700">Apenas .png, .jpg e .jpeg</span>
             }
             
-            <span className="font-bold text-2xl">{nameUser}</span>
+            <span className="font-bold text-2xl uppercase">{nameUser}</span>
         </div>
     )
 }

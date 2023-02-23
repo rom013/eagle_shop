@@ -4,6 +4,7 @@ import image_profile from "../image/image 1.png"
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import axios from "axios";
 import { useNavigate } from "react-router-dom"
+import { SignOutPopUp } from "./Signout";
 
 
 interface v {
@@ -87,17 +88,7 @@ export default function UserButton(){
                                     <ShoppingCart size={26}/>
                                     <p className="font-semibold text-base">Meus jogos</p>
                                 </DropdownMenu.Item>
-                                <DropdownMenu.Item 
-                                    className="outline-none text-white flex items-center gap-4 cursor-pointer hover:bg-purple-900 py-2 px-8 w-full"
-                                    onClick={()=>{
-                                        localStorage.removeItem("authorizationUser")
-                                        setUseAtho(false)
-                                    }}
-                                >
-                                    <SignOut size={26}/>
-                                    <p className="font-semibold text-base">Sair</p>
-                                </DropdownMenu.Item>
-
+                                <SignOutPopUp sign={setUseAtho}/>
                                 <DropdownMenu.Arrow className="fill-purple-500" />
                             </DropdownMenu.Content>
                         </DropdownMenu.Portal>

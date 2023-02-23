@@ -41,6 +41,7 @@ export default function Login(){
                         axios(option)
                             .then(e=>{
                                 localStorage.setItem("authorizationUser", e.data.token)
+                                localStorage.setItem("auth", "true")
                                 setLoadingRequest(false)
                                 navigate('/')
                             })

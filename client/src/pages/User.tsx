@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header"
 import UserProfilePicture from "../components/UserProfilePicture";
 import axios from "axios";
+import { SignOutList } from "../components/Signout";
 
 
 export default function User(){
@@ -29,15 +30,14 @@ export default function User(){
 		}
 		axios(option)
 			.then((e)=>{
-                const {email_user: email, cell_user: cell, nome_user: nome} = e.data.data[0]
-                setKeyUserData(Object.keys({email, cell, nome}))
-                setValueUserData([email, cell, nome])
+                const {email_user: email, cell_user: cell, nome_user: nome, nick_user:nick } = e.data.data[0]
+                setKeyUserData(Object.keys({email, cell, nome, nick}))
+                setValueUserData([email, cell, nome, nick])
 			})
 			.catch(e=>{
                 console.log(e);  
 			})
     },[])
-
     return(
         <>
             <Header/>
@@ -48,21 +48,21 @@ export default function User(){
                 <section className="text-white flex flex-col items-center gap-8">
                     <UserProfilePicture nameUser={valueUserData[3]}/>
 
-                    <ul className="text-white flex flex-col gap-4">
+                    <ul className="text-white flex flex-col gap-2">
                         <li>
-                            <a href="#">Security and privacy</a>
+                            <button className="link after:bg-violet-600">Security and privacy</button>
                         </li>
                         <li>
-                            <a href="#">Alter password</a>
+                            <button className="link after:bg-violet-600">Alter password</button>
                         </li>
                         <li>
-                            <a href="#">Settings</a>
+                            <button className="link after:bg-violet-600">Settings</button>
                         </li>
                         <li>
-                            <a href="#">Help</a>
+                            <button className="link after:bg-violet-600">Help</button>
                         </li>
                         <li>
-                            <a href="#">Sign out</a>
+                            <SignOutList/>
                         </li>
                     </ul>
                 </section>
@@ -79,9 +79,9 @@ export default function User(){
                             {
                                 keyUserData.map((data, index)=>{
                                     return(
-                                        <li className="flex justify-between gap-4" key={index}>
-                                            <strong className="text-white font-bold">{data}</strong>
-                                            <div className="bg-violet-900 py-1 px-4 rounded text-white w-80 font-sora text-xs selection:bg-violet-500">{valueUserData[index]}</div>
+                                        <li className={`flex justify-between gap-4 ${index === 3 && "hidden"}`} key={index}>
+                                            <strong className="text-white font-bold capitalize">{data}</strong>
+                                            <div className="bg-violet-900 py-1 px-4 rounded text-white w-80 font-sora text-xs selection:bg-violet-500 leading-relaxed">{valueUserData[index]}</div>
                                         </li>
                                     )
                                 })
