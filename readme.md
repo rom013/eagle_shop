@@ -1,6 +1,7 @@
 
-![Logo](https://raw.githubusercontent.com/rom013/eagle_shop/2e26c64a593334ef37d4f3dd43f6281513e4952d/client/src/image/logo_eagle.svg)
-
+<p align="center">
+    <img src="https://raw.githubusercontent.com/rom013/eagle_shop/2e26c64a593334ef37d4f3dd43f6281513e4952d/client/src/image/logo_eagle.svg">
+</p>
 
 # Eagle Shop - Plataforma de E-Commerce para Jogos Digitais
 
@@ -60,11 +61,11 @@ Este projeto está licenciado sob a licença
 
 ## Screenshots
 
-<p align="center"> Página de inicial </p>
+<p align="center"> Página inicial </p>
 <img src="https://media.discordapp.net/attachments/691421631700271114/1079219464807120946/eagle_home_full.png?width=508&height=645">
 <p align="center"> Página de registro </p>
 <img src="https://media.discordapp.net/attachments/691421631700271114/1079219464203141230/eagle_register.jpeg?width=1248&height=644">
 <p align="center"> Página de login </p>
 <img src="https://media.discordapp.net/attachments/691421631700271114/1079219464513523763/eagle_login.jpeg?width=1248&height=644">
-<p align="center"> Página do usúario </p>
+<p align="center"> Página do usuário </p>
 <img src="https://media.discordapp.net/attachments/691421631700271114/1079219463855018014/eagle_userPage.jpeg?width=1030&height=645">
