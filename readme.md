@@ -10,14 +10,14 @@ Este é um protótipo de plataforma de e-commerce para jogos digitais, desenvolv
 ##
 
 
-## Funcionalidades
+## Funcionalidades ⚙
 
 - Tela de Login e Registro
 - Perfil do Usuário
 - Página Inicial com Produtos
 - Carrinho de Compras
 
-## Funcionalidades
+## Tecnologias Utilizadas 💻
 
 - React
 - NodeJS
@@ -27,7 +27,8 @@ Este é um protótipo de plataforma de e-commerce para jogos digitais, desenvolv
 - Axios
 - React hook form
 - Radix UI
-## Instalação
+
+## Instalação 📥
 
 1. Clone o repositório em sua máquina local utilizando o seguinte comando:
 
@@ -49,17 +50,11 @@ Este é um protótipo de plataforma de e-commerce para jogos digitais, desenvolv
 6. Acesse o projeto no seu navegador através da URL http://localhost:3000.
 
 
-## Contribuições
+## Contribuições 🤝
 
 Contribuições e sugestões são sempre bem-vindas! Se você deseja contribuir para este projeto, por favor abra uma nova issue ou envie um pull request.
 
-
-## Licença
-Este projeto está licenciado sob a licença 
-[MIT](https://choosealicense.com/licenses/mit/)
-
-
-## Screenshots
+## Screenshots 📷
 
 <p align="center"> Página inicial </p>
 <img src="https://media.discordapp.net/attachments/691421631700271114/1079219464807120946/eagle_home_full.png?width=508&height=645">
@@ -69,3 +64,7 @@ Este projeto está licenciado sob a licença
 <img src="https://media.discordapp.net/attachments/691421631700271114/1079219464513523763/eagle_login.jpeg?width=1248&height=644">
 <p align="center"> Página do usuário </p>
 <img src="https://media.discordapp.net/attachments/691421631700271114/1079219463855018014/eagle_userPage.jpeg?width=1030&height=645">
+
+## Licença 📃
+Este projeto está licenciado sob a licença 
+[MIT](https://choosealicense.com/licenses/mit/)
