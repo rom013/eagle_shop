@@ -17,6 +17,13 @@ body::-webkit-scrollbar-thumb {
   @apply bg-violet-600/50 rounded-full
 }
 
+.carousel::-webkit-scrollbar{
+  @apply w-[1px]
+}
+.carousel::-webkit-scrollbar-thumb{
+  @apply bg-violet-600/10 rounded-full w-[1px]
+}
+
 ::selection{
   @apply bg-violet-900
 }
@@ -60,3 +67,4 @@ body::-webkit-scrollbar-thumb {
 .link:hover::after{
   width: 30%
 }
+

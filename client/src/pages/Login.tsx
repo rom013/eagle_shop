@@ -93,7 +93,7 @@ export default function Login(){
                     <button
                         type="submit"
                         className="disabled:opacity-25 disabled:cursor-not-allowed bg-[#A21CAF] w-full flex justify-center items-center rounded-full py-3 text-3xl font-bold text-white mt-16 hover:bg-[#91169c]"
-                        disabled={pass.length >= 8 ? false : true}
+                        disabled={pass.length > 0 ? false : true}
                     >
                         {
                             !loadingRequest ? "Log in" : <div className="spinner"></div>

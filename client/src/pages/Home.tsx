@@ -2,9 +2,7 @@ import Header from "../components/Header";
 import CarouselSlider from "../components/CarouselSlider";
 import Footer from "../components/Footer";
 
-export default function App() {
-
-	
+export default function App() {	
     return (
 		<>
 			<Header/>

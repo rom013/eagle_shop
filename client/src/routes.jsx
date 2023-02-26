@@ -18,7 +18,7 @@ const RoutesPages = () => (
             <Route path="/user" 
                 element={
                     <Private>
-                        <User/>
+                       <User/>
                     </Private>
                 } 
             />
