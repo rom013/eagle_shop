@@ -43,12 +43,12 @@ export default function User(){
             <Header/>
 
             <main
-                className="flex max-w-5xl mx-28 px-8 my-16 gap-20"
+                className="flex flex-col lg:flex-row max-w-5xl md:mx-28 px-8 my-16 gap-20"
             >
                 <section className="text-white flex flex-col items-center gap-8">
                     <UserProfilePicture nameUser={valueUserData[3]}/>
 
-                    <ul className="text-white flex flex-col gap-2">
+                    <ul className="text-white lg:flex flex-col gap-2 hidden">
                         <li>
                             <button className="link after:bg-violet-600">Security and privacy</button>
                         </li>
@@ -72,7 +72,7 @@ export default function User(){
                     <div className="mt-8">
                         <ul className="flex flex-col gap-6 w-full">
                             <li className="flex justify-between gap-4">
-                                <strong className="text-white font-bold">ID</strong>
+                                <strong className="text-white font-bold basis-20">ID</strong>
                                 <div className="bg-violet-900 py-1 px-4 rounded text-white w-80 font-sora text-xs selection:bg-violet-500">{parseJwt(jwtToken).id}</div>
                             </li>
 
@@ -80,7 +80,7 @@ export default function User(){
                                 keyUserData.map((data, index)=>{
                                     return(
                                         <li className={`flex justify-between gap-4 ${index === 3 && "hidden"}`} key={index}>
-                                            <strong className="text-white font-bold capitalize">{data}</strong>
+                                            <strong className="text-white font-bold capitalize basis-20">{data}</strong>
                                             <div className="bg-violet-900 py-1 px-4 rounded text-white w-80 font-sora text-xs selection:bg-violet-500 leading-relaxed">{valueUserData[index]}</div>
                                         </li>
                                     )

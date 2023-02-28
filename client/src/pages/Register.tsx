@@ -64,7 +64,7 @@ export default function Login(){
                     <img src={logoEagle} alt=""/>
                 </div>
             </section>
-            <main className="w-full md:w-[600px] bg-[#D9D9D9]/10 backdrop-blur-sm p-16 flex flex-col">
+            <main className="w-full md:w-[600px] bg-[#D9D9D9]/10 backdrop-blur-sm px-6 py-16 md:px-16 flex flex-col">
                 <h2 className="text-white font-semibold text-6xl font-sora">
                     Sign in
                 </h2>
@@ -211,7 +211,7 @@ export default function Login(){
                     </button>
                 </form>
 
-                <div className="mt-auto flex justify-center gap-10 font-sora">
+                <div className="mt-auto flex justify-center gap-4 md:gap-10 font-sora">
                     <span className="text-white">
                         Already have an account?
                     </span>

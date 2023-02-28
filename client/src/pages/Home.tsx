@@ -7,7 +7,7 @@ export default function App() {
 		<>
 			<Header/>
 
-			<section className="w-full bg-forspoken h-[37.5rem] bg-no-repeat bg-cover px-20 flex items-center">
+			<section className="w-full bg-forspoken bg-center h-[37.5rem] bg-no-repeat bg-cover px-10 md:px-20 flex items-center">
 				<article className="w-80 text-white">
 					<img src="title_forspoken.png" alt="ads"/>
 					<div className="flex flex-col gap-6 mt-4 mb-20">

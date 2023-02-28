@@ -30,8 +30,8 @@ export default function UserProfilePicture({ nameUser }) {
                     accept="image/png, image/jpeg"
                     onChange={(e) => {
                         setErrorSize(false)
+                        setErrorName(false)
                         const files = e.target.files
-                        
                         if (files && files.length > 0) {
                             const file = files[0]
                             const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
